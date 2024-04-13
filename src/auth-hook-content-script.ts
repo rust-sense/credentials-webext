@@ -10,7 +10,5 @@ console.debug('Registering ReactNativeWebView.postMessage handler');
         token: authData.Token,
       },
     });
-
-    alert('Successfully authenticated with Rust Companion! Check the extension popup to see your Steam ID and token.');
   },
 };

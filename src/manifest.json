@@ -23,6 +23,9 @@
       ],
       "js": [
         "content-script.ts"
+      ],
+      "css": [
+        "content-script.css"
       ]
     }
   ]

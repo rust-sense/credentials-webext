@@ -1,0 +1,13 @@
+.token-title {
+  font-size: 1.125em;
+}
+
+.token-textarea {
+  resize: none;
+  border-radius: 8px;
+  padding: 0.8em;
+  background: #fff;
+  color: #000;
+  width: 100%;
+  min-height: 10vh;
+}
