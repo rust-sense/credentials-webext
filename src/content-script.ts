@@ -40,10 +40,25 @@ window.addEventListener(
       tokenCopyButtonEl.innerHTML = '<span>Copy to clipboard</span>';
       overlayButtonsEl.appendChild(tokenCopyButtonEl);
 
+      let timeoutId = null as number | null;
       tokenCopyButtonEl.addEventListener('click', () => {
-        navigator.clipboard.writeText(token).then(() => {
-          console.debug('Copied token to clipboard');
-        });
+        navigator.clipboard
+          .writeText(token)
+          .then(() => {
+            console.debug('Copied token to clipboard');
+            tokenCopyButtonEl.innerHTML = '<span>Copied!</span>';
+
+            if (timeoutId !== null) {
+              clearTimeout(timeoutId);
+            }
+
+            timeoutId = setTimeout(() => {
+              tokenCopyButtonEl.innerHTML = '<span>Copy to clipboard</span>';
+            }, 3 * 1000);
+          })
+          .catch((error) => {
+            console.error('Failed to copy token to clipboard:', error);
+          });
       });
     }
   },
