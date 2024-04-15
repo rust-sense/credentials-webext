@@ -70,8 +70,8 @@ function createTokenDisplayElements(token: string) {
 			})
 			.then((response) => {
 				console.debug("FCM registration response:", response);
-        registerFCMButtonEl.disabled = false;
-        registerFCMButtonEl.innerHTML = "<span>Register to FCM</span>";
+				registerFCMButtonEl.disabled = false;
+				registerFCMButtonEl.innerHTML = "<span>Register to FCM</span>";
 			});
 	});
 
