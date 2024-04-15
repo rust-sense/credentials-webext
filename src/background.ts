@@ -1,3 +1,7 @@
+import * as a1 from "./proto/android-checkin"
+import * as a2 from "./proto/checkin"
+import * as a3 from "./proto/mcs"
+
 async function getExpoPushToken(
   deviceId: string,
   registrationId: string,
@@ -68,6 +72,7 @@ type Registration = {
 }
 
 async function registerCredentials(authToken: string): Promise<Registration> {
+  console.log(a1, a2, a3);
   //crypto.subtle.generateKey()
   /*
   const rustAppSenderId = '976529667804';
