@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/chrome-manifest.json",
   "manifest_version": 3,
   "name": "Rust Companion Authenticator",
   "version": "0.0.1",
@@ -6,6 +7,15 @@
     "service_worker": "background.ts",
     "type": "module"
   },
+  "permissions": [
+    "clipboardWrite",
+    "gcm"
+  ],
+  "host_permissions": [
+    "https://*/",
+    "https://companion-rust.facepunch.com:443/api/push/register",
+    "https://exp.host/--/api/v2/push/getExpoPushToken"
+  ],
   "content_scripts": [
     {
       "matches": [
