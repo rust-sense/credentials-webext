@@ -13,10 +13,14 @@ window.addEventListener(
         return;
       }
 
-      const overlayBodyEl = overlayContainerEl.querySelector('.overlay-body')!;
+      const overlayBodyEl = overlayContainerEl.querySelector('.overlay-body');
+      if (!overlayBodyEl) {
+        console.error('Failed to find overlay body element');
+        return;
+      }
 
       const tokenTitleEl = document.createElement('h2');
-      tokenTitleEl.innerText = `Your token:`;
+      tokenTitleEl.innerText = 'Your token:';
       tokenTitleEl.className = 'token-title';
       overlayBodyEl.appendChild(tokenTitleEl);
 
@@ -27,7 +31,8 @@ window.addEventListener(
       overlayBodyEl.appendChild(tokenTextAreaEl);
 
       const tokenWarningEl = document.createElement('p');
-      tokenWarningEl.innerText = `Be careful with your token! It can be used to authenticate as you with the Rust Companion API.`;
+      tokenWarningEl.innerText =
+        'Be careful with your token! It can be used to authenticate as you with the Rust Companion API.';
       tokenWarningEl.className = 'token-warning';
       overlayBodyEl.appendChild(tokenWarningEl);
 
