@@ -81,7 +81,7 @@ function createTokenDisplayElements(token: string) {
 	tokenCopyButtonEl.className = "button is-secondary";
 	tokenCopyButtonEl.innerHTML = "<span>Copy to clipboard</span>";
 
-	let timeoutId = null as number | null;
+	let timeoutId: ReturnType<typeof setTimeout> | null = null;
 	tokenCopyButtonEl.addEventListener("click", () => {
 		console.debug("Copying token to clipboard");
 		tokenCopyButtonEl.innerHTML = "<span>Copied!</span>";
