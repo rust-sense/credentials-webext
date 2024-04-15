@@ -1,29 +1,29 @@
 {
-	"$schema": "https://json.schemastore.org/chrome-manifest.json",
-	"manifest_version": 3,
-	"name": "Rust Companion Authenticator",
-	"version": "0.0.1",
-	"background": {
-		"service_worker": "background.ts",
-		"type": "module"
-	},
-	"permissions": ["clipboardWrite", "gcm"],
-	"host_permissions": [
-		"https://*/",
-		"https://companion-rust.facepunch.com:443/api/push/register",
-		"https://exp.host/--/api/v2/push/getExpoPushToken"
-	],
-	"content_scripts": [
-		{
-			"matches": ["https://companion-rust.facepunch.com/app*"],
-			"js": ["auth-hook-content-script.ts"],
-			"run_at": "document_start",
-			"world": "MAIN"
-		},
-		{
-			"matches": ["https://companion-rust.facepunch.com/app*"],
-			"js": ["content-script.ts"],
-			"css": ["content-script.scss"]
-		}
-	]
+  "$schema": "https://json.schemastore.org/chrome-manifest.json",
+  "manifest_version": 3,
+  "name": "Rust Companion Authenticator",
+  "version": "0.0.1",
+  "background": {
+    "service_worker": "background.ts",
+    "type": "module"
+  },
+  "permissions": ["clipboardWrite", "gcm"],
+  "host_permissions": [
+    "https://*/",
+    "https://companion-rust.facepunch.com:443/api/push/register",
+    "https://exp.host/--/api/v2/push/getExpoPushToken"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://companion-rust.facepunch.com/app*"],
+      "js": ["auth-hook-content-script.ts"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["https://companion-rust.facepunch.com/app*"],
+      "js": ["content-script.ts"],
+      "css": ["content-script.scss"]
+    }
+  ]
 }
