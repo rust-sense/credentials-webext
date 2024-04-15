@@ -35,7 +35,7 @@
         "content-script.ts"
       ],
       "css": [
-        "content-script.css"
+        "content-script.scss"
       ]
     }
   ]

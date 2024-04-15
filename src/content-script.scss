@@ -11,3 +11,7 @@
   width: 100%;
   min-height: 10vh;
 }
+
+.overlay-buttons .button.is-primary[disabled] {
+  background-color: rgba(74, 91, 46, 0.40) !important;
+}
