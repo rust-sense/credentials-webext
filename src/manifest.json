@@ -3,15 +3,7 @@
   "manifest_version": 3,
   "name": "Rust Companion Authenticator",
   "version": "0.0.1",
-  "background": {
-    "service_worker": "background.ts",
-    "type": "module"
-  },
   "permissions": ["clipboardWrite"],
-  "host_permissions": [
-    "https://companion-rust.facepunch.com:443/api/push/register",
-    "https://exp.host/--/api/v2/push/getExpoPushToken"
-  ],
   "content_scripts": [
     {
       "matches": ["https://companion-rust.facepunch.com/app*"],
