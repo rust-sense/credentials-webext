@@ -4,6 +4,13 @@
   "name": "Rust Companion Authenticator",
   "version": "0.0.1",
   "permissions": ["clipboardWrite"],
+  "background": {
+    "service_worker": "background.ts",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "Rust Companion Authenticator"
+  },
   "content_scripts": [
     {
       "matches": ["https://companion-rust.facepunch.com/app*"],
