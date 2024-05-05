@@ -7,9 +7,8 @@
 		"service_worker": "background.ts",
 		"type": "module"
 	},
-	"permissions": ["clipboardWrite", "gcm"],
+	"permissions": ["clipboardWrite"],
 	"host_permissions": [
-		"https://*/",
 		"https://companion-rust.facepunch.com:443/api/push/register",
 		"https://exp.host/--/api/v2/push/getExpoPushToken"
 	],
