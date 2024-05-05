@@ -1,3 +1,3 @@
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-	console.log("Received message:", request);
+  console.log("Received message:", request);
 });
