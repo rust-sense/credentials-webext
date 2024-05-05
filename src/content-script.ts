@@ -100,68 +100,75 @@ function createTokenDisplayElements(token: string) {
 }
 
 window.addEventListener(
-  'message',
-  (event) => {
-    if (event.data.rustCompanionAuth) {
-      console.debug('Propagating rust companion authentication data');
-      chrome.runtime.sendMessage(event.data);
+	"message",
+	(event) => {
+		if (event.data.rustCompanionAuth) {
+			console.debug("Propagating rust companion authentication data");
+			chrome.runtime.sendMessage(event.data);
 
-      const token = event.data.rustCompanionAuth.token;
+			const token = event.data.rustCompanionAuth.token;
 
-      const overlayContainerEl = document.querySelector('.page-wrapper .overlay-container');
-      if (!overlayContainerEl) {
-        console.error('Failed to find overlay container element');
-        return;
-      }
+			const overlayContainerEl = document.querySelector(
+				".page-wrapper .overlay-container",
+			);
+			if (!overlayContainerEl) {
+				console.error("Failed to find overlay container element");
+				return;
+			}
 
-      const overlayBodyEl = overlayContainerEl.querySelector('.overlay-body')!;
+			const overlayBodyEl = overlayContainerEl.querySelector(".overlay-body");
+			if (!overlayBodyEl) {
+				console.error("Failed to find overlay body element");
+				return;
+			}
 
-      const tokenTitleEl = document.createElement('h2');
-      tokenTitleEl.innerText = `Your token:`;
-      tokenTitleEl.className = 'token-title';
-      overlayBodyEl.appendChild(tokenTitleEl);
+			const tokenTitleEl = document.createElement("h2");
+			tokenTitleEl.innerText = "Your token:";
+			tokenTitleEl.className = "token-title";
+			overlayBodyEl.appendChild(tokenTitleEl);
 
-      const tokenTextAreaEl = document.createElement('textarea');
-      tokenTextAreaEl.readOnly = true;
-      tokenTextAreaEl.className = 'token-textarea';
-      tokenTextAreaEl.value = token;
-      overlayBodyEl.appendChild(tokenTextAreaEl);
+			const tokenTextAreaEl = document.createElement("textarea");
+			tokenTextAreaEl.readOnly = true;
+			tokenTextAreaEl.className = "token-textarea";
+			tokenTextAreaEl.value = token;
+			overlayBodyEl.appendChild(tokenTextAreaEl);
 
-      const tokenWarningEl = document.createElement('p');
-      tokenWarningEl.innerText = `Be careful with your token! It can be used to authenticate as you with the Rust Companion API.`;
-      tokenWarningEl.className = 'token-warning';
-      overlayBodyEl.appendChild(tokenWarningEl);
+			const tokenWarningEl = document.createElement("p");
+			tokenWarningEl.innerText =
+				"Be careful with your token! It can be used to authenticate as you with the Rust Companion API.";
+			tokenWarningEl.className = "token-warning";
+			overlayBodyEl.appendChild(tokenWarningEl);
 
-      const overlayButtonsEl = document.createElement('div');
-      overlayButtonsEl.className = 'overlay-buttons';
-      overlayContainerEl.appendChild(overlayButtonsEl);
+			const overlayButtonsEl = document.createElement("div");
+			overlayButtonsEl.className = "overlay-buttons";
+			overlayContainerEl.appendChild(overlayButtonsEl);
 
-      const tokenCopyButtonEl = document.createElement('button');
-      tokenCopyButtonEl.className = 'button is-primary';
-      tokenCopyButtonEl.innerHTML = '<span>Copy to clipboard</span>';
-      overlayButtonsEl.appendChild(tokenCopyButtonEl);
+			const tokenCopyButtonEl = document.createElement("button");
+			tokenCopyButtonEl.className = "button is-primary";
+			tokenCopyButtonEl.innerHTML = "<span>Copy to clipboard</span>";
+			overlayButtonsEl.appendChild(tokenCopyButtonEl);
 
-      let timeoutId = null as number | null;
-      tokenCopyButtonEl.addEventListener('click', () => {
-        navigator.clipboard
-          .writeText(token)
-          .then(() => {
-            console.debug('Copied token to clipboard');
-            tokenCopyButtonEl.innerHTML = '<span>Copied!</span>';
+			let timeoutId = null as NodeJS.Timeout | null;
+			tokenCopyButtonEl.addEventListener("click", () => {
+				navigator.clipboard
+					.writeText(token)
+					.then(() => {
+						console.debug("Copied token to clipboard");
+						tokenCopyButtonEl.innerHTML = "<span>Copied!</span>";
 
-            if (timeoutId !== null) {
-              clearTimeout(timeoutId);
-            }
+						if (timeoutId !== null) {
+							clearTimeout(timeoutId);
+						}
 
-            timeoutId = setTimeout(() => {
-              tokenCopyButtonEl.innerHTML = '<span>Copy to clipboard</span>';
-            }, 3 * 1000);
-          })
-          .catch((error) => {
-            console.error('Failed to copy token to clipboard:', error);
-          });
-      });
-    }
-  },
-  false,
+						timeoutId = setTimeout(() => {
+							tokenCopyButtonEl.innerHTML = "<span>Copy to clipboard</span>";
+						}, 3 * 1000);
+					})
+					.catch((error) => {
+						console.error("Failed to copy token to clipboard:", error);
+					});
+			});
+		}
+	},
+	false,
 );
