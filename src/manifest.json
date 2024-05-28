@@ -3,25 +3,43 @@
   "manifest_version": 3,
   "name": "Rust Companion Authenticator",
   "version": "0.0.1",
-  "permissions": ["clipboardWrite"],
+  "permissions": [
+    "clipboardWrite"
+  ],
   "background": {
     "service_worker": "background.ts",
     "type": "module"
+  },
+  "icons": {
+    "256": "icons/icon-x256.png",
+    "128": "icons/icon-x128.png",
+    "48": "icons/icon-x48.png",
+    "16": "icons/icon-x16.png"
   },
   "action": {
     "default_title": "Rust Companion Authenticator"
   },
   "content_scripts": [
     {
-      "matches": ["https://companion-rust.facepunch.com/app*"],
-      "js": ["auth-hook-content-script.ts"],
+      "matches": [
+        "https://companion-rust.facepunch.com/app*"
+      ],
+      "js": [
+        "auth-hook-content-script.ts"
+      ],
       "run_at": "document_start",
       "world": "MAIN"
     },
     {
-      "matches": ["https://companion-rust.facepunch.com/app*"],
-      "js": ["content-script.ts"],
-      "css": ["content-script.scss"]
+      "matches": [
+        "https://companion-rust.facepunch.com/app*"
+      ],
+      "js": [
+        "content-script.ts"
+      ],
+      "css": [
+        "content-script.scss"
+      ]
     }
   ]
 }
