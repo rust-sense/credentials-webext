@@ -36,30 +36,28 @@ While using the extension, we intercept the Authentication Token produced after 
 
 ### Use of Your Personal Data
 
-The Authentication Token is never stored anywhere and is only shown to the user immediately after successful authentication with the Authentication Portal.
+The Authentication Token is never stored and is only shown to the user immediately after successful authentication with the Authentication Portal.
 
 ### Retention of Your Personal Data
 
-The extension does not persist any kind of personal data.
+The extension does not persist any personal data.
 
 ### Transfer of Your Personal Data
 
-The extension does not transfer any kind of personal data.
+The extension does not transfer any personal data.
 
-### Delete Your Personal Data
+### Deletion of Your Personal Data
 
 The Authentication Token displayed to the user is automatically deleted after closing the Authentication Portal. It only lasts in memory for as long as the Authentication Portal is open.
 
 ### Security of Your Personal Data
 
-Your personal data is never transferred or stored anywhere, ensuring it remains extremely secure from external parties.
+Your personal data is never transferred or stored anywhere, ensuring it remains secure from external parties.
 
 Changes to this Privacy Policy
 ------------------------------
 
-We may update our Privacy Policy from time to time. We will notify users of any changes by posting the new Privacy Policy on this page.
-
-We will notify you via email and/or a prominent notice on the extension page prior to the changes becoming effective and update the "Last updated" date at the top of this Privacy Policy. Changes to this Privacy Policy are effective when posted on this page.
+We may update our Privacy Policy from time to time. We will notify users of any changes by posting the new Privacy Policy on this page, updating the "Last updated" date at the top, and notifying you via email and/or a prominent notice on the extension page prior to the changes becoming effective.
 
 You are advised to review this Privacy Policy periodically for any changes.
 
