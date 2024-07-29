@@ -1,3 +1,2 @@
-# trs-credentials-webext
-
+# credentials-webext
 Work in progress

@@ -1,6 +1,6 @@
 {
-  "name": "@the-scientist/credentials-extension",
-  "version": "1.0.0",
+  "name": "@rust-sense/credentials-webext",
+  "version": "1.0.1",
   "description": "",
   "scripts": {
     "start": "parcel watch src/manifest.json --host localhost --config @parcel/config-webextension",
